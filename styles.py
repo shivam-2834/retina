@@ -24,7 +24,7 @@ def load_css():
     }
 
     /* Paragraph text */
-    p, span, div {
+    p, span {
         color: #1f2d3d !important;
     }
 
