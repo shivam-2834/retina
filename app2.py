@@ -1393,7 +1393,7 @@ def page_new_scan():
 
                 with col1:
                     st.image(
-                        original_image,
+                        image,
                         caption="Original Retinal Image",
                         use_container_width=True
                     )
