@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OcuVisionAI | Retinal Screening</title>
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<div id="auth" class="auth-page">
+  <div class="auth-shell">
+    <div class="auth-brand"><img src="/assets/logo" alt="OcuVisionAI retinal screening"></div>
+    <div class="auth-left-copy">
+      <span class="auth-left-kicker">RETINAL SCREENING PLATFORM</span>
+      <h2>Retinal screening,<br><span>made easier to review.</span></h2>
+      <p>AI-assisted retinal image screening with quality<br>control and explainable evidence.</p>
+      <div class="auth-trust-row">
+        <div><i></i><span>Quality control</span></div>
+        <div><i></i><span>AI-assisted<br>confidence</span></div>
+        <div><i></i><span>Explainable evidence</span></div>
+      </div>
+      <div class="auth-boundary"><i></i><span>Designed for screening support and human clinical review.</span></div>
+    </div>
+    <div class="auth-card">
+      <div class="auth-kicker">RETINAL SCREENING PLATFORM</div>
+      <h1 id="authTitle">Sign in</h1>
+      <p class="muted">AI-assisted retinal image screening with quality<br class="desktop-break"> control and explainable evidence.</p>
+      <div class="auth-login-meta" id="loginMeta">
+        <span></span><button id="forgotPassword" type="button">Forgot password?</button>
+      </div>
+      <form id="loginForm">
+        <label>Email<input id="loginEmail" type="email" autocomplete="email" placeholder="you@clinic.com" required></label>
+        <label>Password<input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter your password" required></label>
+        <button class="primary full auth-submit" type="submit">Sign in</button>
+      </form>
+      <div class="auth-create-row" id="loginCreateRow">New to OcuVisionAI? <button id="registerTab" type="button">Create account</button></div>
+      <form id="registerForm" hidden>
+        <label>Full name<input id="regName" autocomplete="name" placeholder="Your full name" required></label>
+        <label>Email<input id="regEmail" type="email" autocomplete="email" placeholder="name@example.com" required></label>
+        <label>Password<input id="regPassword" type="password" minlength="6" autocomplete="new-password" placeholder="At least 6 characters" required></label>
+        <button class="primary full auth-submit" type="submit">Create account</button>
+        <div class="auth-create-row register-back">Already have an account? <button id="loginTab" type="button">Sign in</button></div>
+      </form>
+      <div id="authError" class="form-error" hidden></div>
+      <p class="tiny">AI-assisted screening. Review required. Privacy notice.</p>
+    </div>
+    <div class="auth-footer">OcuVisionAI · Retinal screening support</div>
+  </div>
+</div>
+
+<div id="app" hidden>
+  <aside class="sidebar" aria-label="Primary navigation">
+  <div class="brand brand-expanded">
+    <img src="/assets/sidebar-logo" alt="OcuVisionAI">
+    <button id="sidebarToggle" class="sidebar-toggle" type="button" aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M9 4v16M13 9l-3 3 3 3"></path></svg></button>
+  </div>
+  <div class="side-label">WORKSPACE</div>
+  <nav class="side-nav">
+    <button class="nav active" data-page="dashboard"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span>Dashboard</span></button>
+    <button class="nav" data-page="screening"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><span>New screening</span></button>
+    <button class="nav" data-page="history"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="M8 9h8M8 13h6M8 17h4"/></svg></span><span>Screening history</span></button>
+    <button class="nav" data-page="reports"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v5h5M9 13h6M9 17h6"/></svg></span><span>Reports</span></button>
+  </nav>
+  <div class="side-label side-label-secondary">ACCOUNT</div>
+  <nav class="side-nav">
+    <button class="nav" data-page="profile"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.9-3.5 3.1-5.2 7-5.2s6.1 1.7 7 5.2"/></svg></span><span>Profile</span></button>
+    <button class="nav" data-page="help"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v11H9l-4 4z"/><path d="M9 9h6M9 12h4"/></svg></span><span>Help &amp; support</span></button>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="user-mini"><div class="avatar" id="avatar">U</div><div><strong id="sideUser">Screening account</strong><small>Signed-in user</small></div></div>
+    <button id="logout" class="logout"><span class="nav-icon" aria-hidden="true">↪</span><span>Sign out</span></button>
+  </div>
+</aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb"><span>OcuVisionAI</span><i>/</i><strong id="pageContext">Dashboard</strong></div>
+        <div id="pageSubtitle" class="topbar-subtitle">Retinal screening workspace</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="top-help" data-page="help" type="button"><svg viewBox="0 0 24 24"><path d="M5 5h14v11H9l-4 4z"/><path d="M9 9h6M9 12h4"/></svg><span>Help</span></button>
+        <button id="topNewScreening" class="top-primary" type="button"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>New screening</span></button>
+        <div class="top-user"><div class="top-avatar" id="topAvatar">S</div><div><strong id="topUser"></strong><span>Signed in</span></div></div>
+      </div>
+    </header>
+
+    <section id="dashboard" class="page">
+      <div class="dashboard-hero">
+        <div class="dashboard-hero-copy">
+          <span class="eyebrow hero-eyebrow">OCUVISIONAI · RETINAL SCREENING</span>
+          <h1>Welcome back, <span id="welcomeName">User</span></h1>
+          <p>Review screening activity, assess retinal images, and inspect explainable AI evidence from one professional workspace.</p>
+          <div class="hero-actions">
+            <button id="heroScan" class="primary hero-primary">Start new screening</button>
+            <button id="heroHistory" class="secondary hero-secondary">View history</button>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="retina-orbit orbit-one"></div><div class="retina-orbit orbit-two"></div><div class="retina-core"><span></span></div>
+        </div>
+      </div>
+
+      <div class="dashboard-section-head">
+        <div><span class="eyebrow">SCREENING OVERVIEW</span><h2>Your screening activity</h2></div>
+        <span class="workspace-status"><i></i> AI screening workspace</span>
+      </div>
+      <div class="stats dashboard-stats dashboard-stats-four">
+        <div class="stat-card stat-primary"><div class="stat-icon">01</div><div><span>Total screenings</span><strong id="totalScans">0</strong><small>Saved to your screening history</small></div></div>
+        <div class="stat-card"><div class="stat-icon result-icon">02</div><div><span>Latest AI result</span><strong id="latestResult">—</strong><small>Most recent screening category</small></div></div>
+        <div class="stat-card"><div class="stat-icon confidence-icon">03</div><div><span>Latest confidence</span><strong id="latestConfidenceValue">—</strong><small id="latestConfidence">No screening yet</small></div></div>
+        <div class="stat-card"><div class="stat-icon date-icon">04</div><div><span>Last screening</span><strong id="latestDate">—</strong><small>Most recent saved activity</small></div></div>
+      </div>
+      <div class="dashboard-analytics">
+        <div class="panel chart-panel">
+          <div class="panel-head"><div><span class="eyebrow">CONFIDENCE TREND</span><h3>Confidence over time</h3><p class="chart-subtitle">Recent model confidence across completed screenings</p></div><span class="chart-badge">AI screening</span></div>
+          <div id="confidenceChart" class="chart-area"></div>
+        </div>
+        <div class="panel chart-panel diagnosis-panel">
+          <div class="panel-head"><div><span class="eyebrow">SCREENING DISTRIBUTION</span><h3>Diagnosis breakdown</h3><p class="chart-subtitle">Results recorded in your history</p></div></div>
+          <div id="diagnosisChart" class="diagnosis-chart"></div>
+        </div>
+      </div>
+      <div class="dashboard-grid dashboard-lower-grid">
+        <div class="panel recent-panel"><div class="panel-head"><div><span class="eyebrow">RECENT ACTIVITY</span><h3>Recent screenings</h3></div><button id="historyBtn" class="text-button">View history</button></div><div id="recent"></div></div>
+        <div class="panel care-panel"><div class="panel-head"><div><span class="eyebrow">CLINICAL REVIEW</span><h3>Screening overview</h3></div></div><div class="care-list"><div><span class="care-icon">✓</span><div><strong>Image quality first</strong><p>Unusable captures are identified before AI screening.</p></div></div><div><span class="care-icon">AI</span><div><strong>Explainable evidence</strong><p>Grad-CAM and retinal evidence support human review.</p></div></div><div><span class="care-icon">MD</span><div><strong>Clinician in the loop</strong><p>Final clinical interpretation remains with a qualified professional.</p></div></div></div></div>
+      </div>
+      <div class="dashboard-note"><strong>Clinical-use notice</strong><span>OcuVisionAI provides AI-assisted screening support. Results and visual evidence are not a confirmed clinical diagnosis and should be reviewed appropriately by a qualified clinician.</span></div>
+    </section>
+
+    <section id="screening" class="page" hidden>
+      <div class="page-intro compact"><div><span class="eyebrow">SCREENING WORKSPACE</span><h1>New retinal screening</h1><p>Upload a fundus image to assess quality, run AI screening, and review the complete evidence report.</p></div></div>
+      <div class="panel upload-panel">
+        <div class="section-heading"><div><span class="step">01</span><div><h3>Upload fundus image</h3><p class="muted">JPG, JPEG or PNG · maximum file size 200 MB</p></div></div><div class="file-status" id="fileStatus">No image selected</div></div>
+        <input id="imageFile" class="file-input" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png">
+        <label for="imageFile" class="dropzone"><span class="upload-icon">↑</span><strong>Choose retinal image</strong><span>Clear fundus photograph · maximum 200 MB</span></label>
+        <div id="filePreview" class="file-preview" hidden></div>
+        <div class="upload-actions"><button id="analyzeBtn" class="primary analyze" disabled>Run AI screening</button><button id="clearFileBtn" class="secondary" type="button" hidden>Remove image</button></div>
+        <div id="qualityMessage"></div>
+      </div>
+      <div id="resultPanel" hidden></div>
+    </section>
+
+    <section id="history" class="page" hidden>
+      <div class="page-intro compact history-intro"><div><span class="eyebrow">SCREENING HISTORY</span><h1>Previous screenings</h1><p>Review saved screening sessions, model output and report availability.</p></div><div class="page-action"><button id="historyNewScreening" class="primary">+ New screening</button></div></div>
+      <div class="history-toolbar"><div class="history-search-wrap"><span class="search-icon">⌕</span><input id="historySearch" type="text" placeholder="Search by result or image name" aria-label="Search screening history"></div><span id="historyCount" class="history-count">0 screenings</span></div>
+      <div class="panel history-panel"><div class="history-table-head"><span>SCREENING</span><span>DATE &amp; TIME</span><span>CONFIDENCE</span><span>REPORT</span></div><div id="historyList"></div></div>
+    </section>
+    <section id="reports" class="page" hidden>
+      <div class="page-intro compact reports-intro"><div><span class="eyebrow">REPORTS</span><h1>Screening reports</h1><p>Structured reports generated from completed OcuVisionAI screenings.</p></div><div class="page-action"><button id="reportsNewScreening" class="secondary">+ New screening</button></div></div>
+      <div class="reports-hero panel">
+        <div class="report-hero-icon">R</div><div class="report-hero-copy"><span class="eyebrow">CLINICAL SCREENING DOCUMENT</span><h2>OcuVisionAI screening report</h2><p>Each report brings image quality, AI screening output, confidence, explainability, retinal evidence and screening support together for review.</p></div>
+        <div class="report-hero-action"><button id="reportsDownload" class="primary">Download latest report</button><span id="reportsStatus" class="report-status">No report selected</span></div>
+      </div>
+      <div class="panel report-list-panel"><div class="panel-head"><div><span class="eyebrow">AVAILABLE REPORTS</span><h3>Your screening documents</h3></div></div><div id="reportList" class="report-list"><div class="empty-state"><strong>No report yet</strong><span>Complete a screening to generate your first report.</span></div></div></div>
+    </section>
+
+    <section id="profile" class="page" hidden>
+      <div class="page-intro compact"><div><span class="eyebrow">ACCOUNT</span><h1>Profile &amp; workspace</h1><p>Manage your screening account and review workspace activity.</p></div></div>
+      <div class="profile-layout">
+        <div class="panel profile-identity-card"><div class="profile-avatar large" id="profileAvatar">S</div><div><span class="eyebrow">SIGNED-IN ACCOUNT</span><h2 id="profileName">Screening user</h2><p id="profileEmail">—</p><span class="account-status"><i></i> Account active</span></div></div>
+        <div class="panel profile-details-card"><div class="panel-head"><div><span class="eyebrow">ACCOUNT DETAILS</span><h3>Workspace information</h3></div></div><div class="detail-list"><div><span>Full name</span><strong id="profileNameDetail">—</strong></div><div><span>Email address</span><strong id="profileEmailDetail">—</strong></div><div><span>Workspace</span><strong>OcuVisionAI Retinal Screening</strong></div><div><span>Access</span><strong>Screening &amp; reporting</strong></div></div></div>
+        <div class="panel profile-stat-card"><div class="panel-head"><div><span class="eyebrow">ACTIVITY</span><h3>Screening account</h3></div></div><div class="profile-stat-row"><div><strong id="profileTotal">0</strong><span>Total screenings</span></div><div><strong id="profileReports">0</strong><span>Reports available</span></div></div><button id="profileHistoryBtn" class="secondary full-width-btn">View screening history</button></div>
+        <div class="panel profile-security-card"><div class="panel-head"><div><span class="eyebrow">SECURITY &amp; PRIVACY</span><h3>Account protection</h3></div></div><div class="security-item"><span class="security-icon">✓</span><div><strong>Authenticated workspace</strong><p>Your screening history is associated with your signed-in account.</p></div></div><div class="security-item"><span class="security-icon">AI</span><div><strong>Clinical-use boundary</strong><p>AI outputs are screening support and are not a confirmed diagnosis.</p></div></div><button id="profileSignOut" class="secondary full-width-btn">Sign out</button></div>
+      </div>
+    </section>
+
+    <section id="help" class="page" hidden>
+      <div class="page-intro compact support-intro">
+        <div><span class="eyebrow">SUPPORT CENTER</span><h1>Help &amp; support</h1><p>Quick assistance for screening, results and reports.</p></div>
+        <span class="support-availability"><i></i>Support workspace</span>
+      </div>
+      <div class="support-hero panel">
+        <div class="support-hero-icon"><svg viewBox="0 0 24 24"><path d="M5 5h14v11H9l-4 4z"/><path d="M9 9h6M9 12h4"/></svg></div>
+        <div><span class="eyebrow">NEED ASSISTANCE?</span><h2>How can we help?</h2><p>Send a message about a technical issue, screening workflow question or report problem.</p></div>
+        <button id="openSupportBtn" class="primary">Message support</button>
+      </div>
+      <div class="support-options">
+        <button class="support-option panel" id="supportMessageCard" type="button">
+          <span class="support-option-icon"><svg viewBox="0 0 24 24"><path d="M5 5h14v11H9l-4 4z"/><path d="M9 9h6M9 12h4"/></svg></span>
+          <span><strong>Send a message</strong><small>Describe your issue and send it securely from your account.</small></span><b>→</b>
+        </button>
+        <div class="support-option panel support-info-option">
+          <span class="support-option-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2"/></svg></span>
+          <span><strong>Support details</strong><small>Your request includes your signed-in account and the page where you reported the issue.</small></span>
+        </div>
+      </div>
+      <div class="help-grid-pro">
+        <div class="panel help-card"><span class="help-number">01</span><h3>Before screening</h3><p>Use a clear, centered fundus image. The system checks focus, illumination and field of view before AI screening.</p><button class="help-link" data-help-target="screening">Open screening →</button></div>
+        <div class="panel help-card"><span class="help-number">02</span><h3>Understanding results</h3><p>Review the AI class, confidence, probabilities and Grad-CAM together. The output is screening support, not a diagnosis.</p><button class="help-link" data-help-target="screening">Review workflow →</button></div>
+        <div class="panel help-card"><span class="help-number">03</span><h3>Reports</h3><p>Completed screenings with a stored report can be viewed and downloaded from the Reports workspace.</p><button class="help-link" data-help-target="reports">Open reports →</button></div>
+        <div class="panel help-card"><span class="help-number">04</span><h3>Clinical review</h3><p>Candidate lesion and vascular evidence are supporting image-analysis cues. Final interpretation remains with a qualified clinician.</p><button class="help-link" data-help-target="history">Open history →</button></div>
+      </div>
+      <div class="support-boundary-panel"><span class="support-boundary-icon">i</span><div><strong>Clinical-use boundary</strong><p>OcuVisionAI is designed as AI-assisted screening support. It does not replace professional diagnosis or clinical management.</p></div></div>
+    </section>
+    <div id="historyDetailModal" class="modal" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-card"><button class="modal-close" data-close-modal aria-label="Close">×</button><span class="eyebrow">SCREENING DETAILS</span><h2 id="historyDetailTitle">Screening</h2><div id="historyDetailBody"></div></div></div>
+    <div id="supportModal" class="modal" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-card support-modal-card"><button class="modal-close" data-close-modal aria-label="Close">×</button><span class="eyebrow">SUPPORT REQUEST</span><h2>Prepare a support message</h2><p class="modal-copy">Add a short description. OcuVisionAI will prepare a copyable support message containing your account and application context.</p><label>What happened?<textarea id="supportMessage" rows="5" placeholder="Describe the issue or question..."></textarea></label><div class="modal-actions"><button id="sendSupportBtn" class="primary">Send support request</button><button id="copySupportBtn" class="secondary">Copy message</button><button class="secondary" data-close-modal>Close</button></div><div id="supportSent" class="support-sent" hidden></div><div id="supportCopied" class="support-copied" hidden>Support message copied.</div></div></div>
+
+  </main>
+</div>
+<script src="/js/app.js"></script>
+</body>
+</html>
